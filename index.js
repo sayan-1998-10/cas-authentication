@@ -1,3 +1,5 @@
+// Code forked from https://github.com/shunnmugam/cas-authentication to modify some changes regarding the cas port
+
 var url           = require('url'),
     http          = require('http'),
     https         = require('https'),
@@ -44,6 +46,8 @@ function CASAuthentication(options) {
     if (options.service_url === undefined) {
         throw new Error( 'CAS Authentication requires a service_url parameter.');
     }
+
+    // this.cas_port = (parsed_cas_url.port!=null)?parsed_cas_url.port:(parsed_cas_url.protocol === 'http:' ? 80 : 443);
 
     this.cas_port = options.cas_port ? options.cas_port : 443;
 
